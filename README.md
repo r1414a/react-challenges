@@ -25,61 +25,26 @@ Here are practical React coding challenges commonly asked in interviews:
 14. **Shopping Cart** — Add/remove items, update quantity, calculate total price using `useReducer`.
 15. **Drag and Drop List** — Reorder a list of items by dragging, without any DnD library.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Advanced**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+16. **Autocomplete / Typeahead** — Build a search input that fetches suggestions from an API as you type, with keyboard navigation (arrow keys + Enter) through results.
+17. **Custom `useFetch` Hook** — Build a hook that handles loading, error, data states, and request cancellation with `AbortController`.
+18. **Virtualized List** — Render a list of 10,000 items efficiently by only rendering visible rows (implement basic windowing from scratch).
+19. **Kanban Board** — Columns with cards that can be moved between columns (like a basic Trello board).
+20. **Real-time Search with Cache** — Search an API, cache previous results to avoid redundant requests, show stale data while refetching.
+21. **OTP Input** — Build a 6-digit OTP input where focus auto-moves to the next box, supports backspace, and paste works correctly.
+22. **File Upload with Preview** — Drag-and-drop file upload with image preview, progress bar simulation, and file type/size validation.
+23. **Polling Component** — Fetch data every N seconds, pause polling when the tab is not active (using `visibilitychange`).
+24. **Undo/Redo** — Implement undo/redo functionality for a text editor or drawing canvas using a history stack.
+25. **Context + Reducer Auth Flow** — Build a login/logout flow with protected routes using Context API and `useReducer`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Good APIs to use for practice:**
+- `https://jsonplaceholder.typicode.com` — users, posts, todos
+- `https://dummyjson.com` — products, carts, auth
+- `https://api.github.com` — repos, users
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
