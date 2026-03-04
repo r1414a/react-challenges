@@ -1,7 +1,9 @@
-table,tr,td, th{
-    border: 1px solid white;
-}
-td{
-    padding: 5px;
-    text-align: center;
+@import "tailwindcss";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: #000;
 }

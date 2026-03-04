@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function useGetData(url){
+export default function useGetData(url, dependency){
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -15,7 +15,7 @@ export default function useGetData(url){
                 setData(result);
             }catch(err){
                 console.log("Error while fetching data: ",err);
-                setError(err.message || "Something went wrong....")
+                setError('Failed to fetch data')
             }finally{
                 setLoading(false);  
             }
@@ -28,7 +28,7 @@ export default function useGetData(url){
         return () => {
             clearTimeout(delayTime);
         }
-    },[]);
+    },dependency);
 
     return {
         data,
